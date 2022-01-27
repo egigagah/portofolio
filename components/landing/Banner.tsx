@@ -39,12 +39,16 @@ export default function Banner() {
         }
       }
     )
+
+    const tlWelcome = gsap.timeline()
     
-    gsap.fromTo(
+    tlWelcome.fromTo(
       '#divider-svg',
-      {height: mobileBreakPoints ? '250vh' : '150vh'},
+      {height: '270vh'},
+      // {height: mobileBreakPoints ? '250vh' : '150vh'},
       {height: mobileBreakPoints ? '125px' : '235px', delay: 1}
     )
+    tlWelcome.fromTo("#reachme", {zIndex: 0}, {zIndex: 1})
 
     const tlBanner = gsap.timeline({})
 
@@ -85,22 +89,25 @@ export default function Banner() {
       </div>
       <div id="type-wrapper" className="flex flex-row w-full justify-center items-center text-gray-500 px-4 md:px-16 lg:px-32">
         <div className="flex flex-col text-center min-h-[63px] md:min-h-[45px]">
-          <h3 id="typewiriter" className="text-2xl lg:text-4xl font-extrabold text-transparent text-clip bg-clip-text bg-gradient-to-br from-blue-400 to-primary drop-shadow-lg"></h3>
+          <h3 id="typewiriter" className="text-2xl md:text-4xl font-extrabold text-transparent text-clip bg-clip-text bg-gradient-to-br from-blue-400 to-primary drop-shadow-lg"></h3>
         </div>
       </div>
       <div id="head-detail" className="grid grid-cols-1 md:grid-cols-3 w-full gap-8 md:gap-4 text-gray-500 px-4 md:px-16 lg:px-32 text-center drop-shadow-xl">
-          <div className="flex flex-col text-lg md:text-xl lg:text-2xl">
-            <p>{yearsExp}</p>
-            <p className="font-semibold">Years Experiences</p>
-          </div>
-          <div className="flex flex-col text-lg md:text-xl lg:text-2xl">
-            <p>Role</p>
-            <p className="font-semibold">Frontend Developer</p>
-          </div>
-          <div className="flex flex-col text-lg md:text-xl lg:text-2xl">
-            <p>Language</p>
-            <p className="font-semibold">Bahasa and English</p>
-          </div>
+        <div className="flex flex-col text-lg md:text-xl lg:text-2xl">
+          <p>{yearsExp}</p>
+          <p className="font-semibold">Years Experiences</p>
+        </div>
+        <div className="flex flex-col text-lg md:text-xl lg:text-2xl">
+          <p>Role</p>
+          <p className="font-semibold">Frontend Developer</p>
+        </div>
+        <div className="flex flex-col text-lg md:text-xl lg:text-2xl">
+          <p>Language</p>
+          <p className="font-semibold">Bahasa and English</p>
+        </div>
+      </div>
+      <div className="flex flex-row justify-center">
+        <button id="reachme" onClick={() => console.log('')} className="py-2 px-4 md:px-8 md:py-4 bg-primary text-secondary rounded-xl font-semibold shadow-xl transform hover:scale-[1.02]" > Reach Me</button>
       </div>
       <DividerSvg className='' />
     </section>

@@ -37,9 +37,9 @@ export default function Portofolio() {
       <DividerSvg isTop={true} />
       <div className="flex flex-col mt-[120px] md:mt-[230px] space-y-16 bg-primary">
         <div className="flex flex-col justify-center items-center h-full">
-          <h3 className="text-2xl lg:text-4xl font-extrabold text-transparent text-clip bg-clip-text bg-gradient-to-br from-white to-secondary drop-shadow-lg">Portofolio</h3>
+          <h3 className="text-2xl md:text-4xl font-extrabold text-transparent text-clip bg-clip-text bg-gradient-to-br from-white to-secondary drop-shadow-lg">Portofolio</h3>
         </div>
-        <div className="flex flex-row justify-center items-center px-8 md:px-16 lg:px-32">
+        <div className="flex flex-row justify-center items-center px-8 md:px-16 lg:px-32 pb-[120px] md::pb-[230px]">
           <div id="porto-cards-wrapper" className="w-full h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
             {portoData.map((item, idx) => (
               <div key={idx} className="porto-cards w-full h-[12rem] lg:h-[15rem] relative bg-gray-200 rounded-xl transform hover:scale-[1.01] hover:cursor-pointer shadow-lg">
