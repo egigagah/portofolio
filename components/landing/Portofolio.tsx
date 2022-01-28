@@ -2,7 +2,7 @@ import Image from "next/image";
 import { useEffect } from "react";
 import gsap from "gsap";
 import DividerSvg from "../svg/Divider";
-// import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import Jakevo from "@/public/images/jakevo.png";
 import JakevoUi from "@/public/images/jakevo-ui.png";
 import Plasma from "@/public/images/plasma.png";
@@ -22,6 +22,7 @@ export default function Portofolio() {
   ]
 
   useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger)
     const mobileBreakPoints = window.matchMedia('(max-width: 640px)').matches
     if (!mobileBreakPoints) {
       gsap.utils.toArray<HTMLElement>('.porto-cards').forEach( el => {
@@ -43,7 +44,7 @@ export default function Portofolio() {
 
   return (
     <section id="portofolio-section" className="min-h-screen flex flex-col relative">
-      <DividerSvg isTop={true} />
+      <DividerSvg isTop={true} id="portofolio" />
       <div className="flex flex-col mt-[120px] md:mt-[230px] space-y-16 bg-primary">
         <div className="flex flex-col justify-center items-center h-full">
           <h3 className="text-2xl md:text-4xl font-extrabold text-transparent text-clip bg-clip-text bg-gradient-to-br from-white to-secondary drop-shadow-lg">Portofolio</h3>

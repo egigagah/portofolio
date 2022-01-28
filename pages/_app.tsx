@@ -1,14 +1,10 @@
 import 'tailwindcss/tailwind.css'
 import type { AppProps } from 'next/app'
 import { useEffect } from 'react';
-import gsap from "gsap";
-import TextPlugin from "gsap/dist/TextPlugin";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
     window.history.scrollRestoration = 'manual'
-    gsap.registerPlugin(TextPlugin, ScrollTrigger)
   }, []);
 
   return (

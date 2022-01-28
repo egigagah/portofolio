@@ -115,10 +115,10 @@ export default function Skills() {
               </button>)
             )}
             </div>
-            <div id="body-editor" className="flex flex-col h-full w-full px-6 py-4 text-secondary hover:cursor-text overflow-scroll relative">
+            <div id="body-editor" className="flex flex-col h-full w-full py-4 text-secondary hover:cursor-text overflow-scroll">
               {!tabLoading && tabActive?.content?.map((item, idx) => (
-                <div key={idx} className="flex flex-row space-x-2 relative">
-                  <div id="number-body" className="flex flex-row w-6 sticky left-0 top-0 bg-accentDarkLight">
+                <div key={idx} className="flex flex-row space-x-2 relative w-full">
+                  <div id="number-body" className="flex flex-row w-6 sticky left-0 bg-accentDarkLight px-6">
                     <span className="pr-4 flex flex-row justify-end">{idx+1}</span>
                   </div>
                   <div id="text-body" className="flex flex-row flex-1">
@@ -130,7 +130,7 @@ export default function Skills() {
           </div>
         </div>
         <div className="flex flex-row justify-center">
-          <button id="hireme" onClick={() => console.log('')} className="py-2 px-4 md:px-8 md:py-4 bg-primary text-secondary rounded-xl font-semibold shadow-xl transform hover:scale-[1.02]" > Hire Me</button>
+          <button id="hireme" onClick={() => console.log('')} className="px-8 py-4 bg-primary text-secondary rounded-xl font-semibold shadow-xl transform hover:scale-[1.02]" > Hire Me</button>
         </div>
       </div>
     </section>

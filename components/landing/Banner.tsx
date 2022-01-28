@@ -29,7 +29,13 @@ export default function Banner() {
         {height: mobileBreakPoints ? '125px' : '235px', delay: 2},
         'onload'
       )
-      // .fromTo("#reachme", {zIndex: 0}, {zIndex: 1})
+      .to(
+        '#head-section',
+        // {height: '270vh'},
+        // {height: mobileBreakPoints ? '250vh' : '150vh'},
+        {minHeight: mobileBreakPoints ? 'calc(100vh-125px)' : 'calc(100vh-235px)', delay: 2},
+        'onload'
+      )
       .fromTo('.zoom-out', {scale: 1.4}, {scale: 1, delay: 2}, 'onload')
       .to('#typewiriter', {text: ""}, 'onload')
       .fromTo('#typewiriter',
@@ -56,8 +62,8 @@ export default function Banner() {
       )
 
       const tlBanner = gsap.timeline({})
-
-      tlBanner.add('start')
+      tlBanner.set('#profil-pict', {scale: 1})
+      .add('start')
       .to('#profil-pict',{scale: 1.3 }, 'start')
       .to("#head-detail", {yPercent: 100, ease: 'expo.in'}, 'start')
 
@@ -75,7 +81,7 @@ export default function Banner() {
   }, [])
 
   return (
-    <section id="head-section" className="min-h-screen w-full h-full flex flex-col pt-32 md:pt-16 space-y-8 md:space-y-16 relative">
+    <section id="head-section" className="min-h-screen w-full flex flex-col pt-32 md:pt-16 space-y-8 md:space-y-16 relative">
       <div className="flex flex-col justify-center items-center drop-shadow-xl">
         <div id="profil-pict" className="zoom-out w-[7rem] h-[7rem] md:w-[10rem] md:h-[10rem] rounded-full relative overflow-clip bg-[#025191]">
           <Image
