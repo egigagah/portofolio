@@ -10,70 +10,65 @@ export default function Banner() {
   const yearsExp = new Date().getFullYear() - 2017
 
   useEffect(() => {
-    gsap.registerPlugin(TextPlugin, ScrollTrigger)
-    const tl = gsap.timeline()
-    const mobileBreakPoints = window.matchMedia('(max-width: 640px)').matches
-    // tl.to('#typewiriter', {duration: 10, text: "Hellooo, I'm Egi Gagah Brilliant"})
-    // tl.to('#typewiriter', {duration: 10, text: "Hellooo, I'm Egi Gagah Brilliant"})
+    let ready = true;
+    if (ready) {
+     
+      gsap.registerPlugin(TextPlugin, ScrollTrigger)
+      const mobileBreakPoints = window.matchMedia('(max-width: 640px)').matches
+      // tl.to('#typewiriter', {duration: 10, text: "Hellooo, I'm Egi Gagah Brilliant"})
+      // tl.to('#typewiriter', {duration: 10, text: "Hellooo, I'm Egi Gagah Brilliant"})
 
-    tl.to('#typewiriter', {text: ""})
-    .fromTo('#typewiriter',
-      {text: ""},
-      { duration: 3.5, text: "Hellooo, Welcome to my website",
-        delay: 0.5,
-        stagger: {
-          from: 'start',
-          each: 0.5,
-          yoyo: true,
-          repeat: 1,
-          repeatDelay: 1
-        },
-      }
-    )
-    .fromTo('#typewiriter',
-      {text: ""},
-      { duration: 3, text: "I'm Egi Gagah Brilliant", delay: 0.5,
-        stagger: {
-          from: 'start',
-          each: 0.5,
+
+      const tlWelcome = gsap.timeline()
+      
+      tlWelcome.to(
+        '#divider-svg-banner',
+        // {height: '270vh'},
+        // {height: mobileBreakPoints ? '250vh' : '150vh'},
+        {height: mobileBreakPoints ? '125px' : '235px', delay: 2}
+      )
+      // .fromTo("#reachme", {zIndex: 0}, {zIndex: 1})
+      .to('#typewiriter', {text: ""})
+      .fromTo('#typewiriter',
+        {text: ""},
+        { duration: 4, text: "Hellooo, Welcome to my website",
+          // delay: 0.5,
+          stagger: {
+            from: 'start',
+            each: 0.5,
+            yoyo: true,
+            repeat: 1,
+            repeatDelay: 1
+          },
         }
-      }
-    )
+      )
+      .fromTo('#typewiriter',
+        {text: ""},
+        { duration: 3, text: "I'm Egi Gagah Brilliant", delay: 0.5,
+          stagger: {
+            from: 'start',
+            each: 0.5,
+          }
+        }
+      )
 
-    const tlWelcome = gsap.timeline()
-    
-    tlWelcome.fromTo(
-      '#divider-svg',
-      {height: '270vh'},
-      // {height: mobileBreakPoints ? '250vh' : '150vh'},
-      {height: mobileBreakPoints ? '125px' : '235px', delay: 1}
-    )
-    tlWelcome.fromTo("#reachme", {zIndex: 0}, {zIndex: 1})
+      const tlBanner = gsap.timeline({})
 
-    const tlBanner = gsap.timeline({})
+      tlBanner.add('start')
+      .to('#profil-pict',{scale: 1.3 }, 'start')
+      .to("#head-detail", {yPercent: 100, ease: 'expo.in'}, 'start')
 
-    tlBanner.add('start')
-    .to('#profil-pict',{scale: 1.3 }, 'start')
-    .to("#head-detail", {yPercent: 100, ease: 'expo.in'}, 'start')
-
-    ScrollTrigger.create({
-      trigger: "#head-section",
-      start: 'top top',
-      end: "65% top",
-      markers: true,
-      scrub: true,
-      pin: true,
-      animation: tlBanner
-    })
-
-    // ScrollTrigger.create({
-    //     trigger: '#profil-pict',
-    //     markers: true,
-    //     start: 'bottom top',
-    //     pinnedContainer: '#head-section',
-    //     pin: '#type-wrapper'
-    // })
-
+      ScrollTrigger.create({
+        trigger: "#head-section",
+        start: 'top top',
+        end: "65% top",
+        // markers: true,
+        scrub: true,
+        pin: true,
+        animation: tlBanner
+      })
+    }
+    return () => {ready = false}
   }, [])
 
   return (
@@ -106,10 +101,10 @@ export default function Banner() {
           <p className="font-semibold">Bahasa and English</p>
         </div>
       </div>
-      <div className="flex flex-row justify-center">
+      {/* <div className="flex flex-row justify-center">
         <button id="reachme" onClick={() => console.log('')} className="py-2 px-4 md:px-8 md:py-4 bg-primary text-secondary rounded-xl font-semibold shadow-xl transform hover:scale-[1.02]" > Reach Me</button>
-      </div>
-      <DividerSvg className='' />
+      </div> */}
+      <DividerSvg id='banner' height="h-[270vh]" />
     </section>
   )
 }
