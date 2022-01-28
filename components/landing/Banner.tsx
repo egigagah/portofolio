@@ -21,14 +21,17 @@ export default function Banner() {
 
       const tlWelcome = gsap.timeline()
       
-      tlWelcome.to(
+      tlWelcome.add('onload')
+      .to(
         '#divider-svg-banner',
         // {height: '270vh'},
         // {height: mobileBreakPoints ? '250vh' : '150vh'},
-        {height: mobileBreakPoints ? '125px' : '235px', delay: 2}
+        {height: mobileBreakPoints ? '125px' : '235px', delay: 2},
+        'onload'
       )
       // .fromTo("#reachme", {zIndex: 0}, {zIndex: 1})
-      .to('#typewiriter', {text: ""})
+      .fromTo('.zoom-out', {scale: 1.4}, {scale: 1, delay: 2}, 'onload')
+      .to('#typewiriter', {text: ""}, 'onload')
       .fromTo('#typewiriter',
         {text: ""},
         { duration: 4, text: "Hellooo, Welcome to my website",
@@ -74,7 +77,7 @@ export default function Banner() {
   return (
     <section id="head-section" className="min-h-screen w-full h-full flex flex-col pt-32 md:pt-16 space-y-8 md:space-y-16 relative">
       <div className="flex flex-col justify-center items-center drop-shadow-xl">
-        <div id="profil-pict" className="w-[7rem] h-[7rem] md:w-[10rem] md:h-[10rem] rounded-full relative overflow-clip bg-[#025191]">
+        <div id="profil-pict" className="zoom-out w-[7rem] h-[7rem] md:w-[10rem] md:h-[10rem] rounded-full relative overflow-clip bg-[#025191]">
           <Image
             src={ProfilePict}
             layout="responsive"
@@ -88,15 +91,15 @@ export default function Banner() {
         </div>
       </div>
       <div id="head-detail" className="grid grid-cols-1 md:grid-cols-3 w-full gap-8 md:gap-4 text-gray-500 px-4 md:px-16 lg:px-32 text-center drop-shadow-xl">
-        <div className="flex flex-col text-lg md:text-xl lg:text-2xl">
+        <div className="flex flex-col text-lg md:text-xl lg:text-2xl zoom-out">
           <p>{yearsExp}</p>
           <p className="font-semibold">Years Experiences</p>
         </div>
-        <div className="flex flex-col text-lg md:text-xl lg:text-2xl">
+        <div className="flex flex-col text-lg md:text-xl lg:text-2xl zoom-out">
           <p>Role</p>
           <p className="font-semibold">Frontend Developer</p>
         </div>
-        <div className="flex flex-col text-lg md:text-xl lg:text-2xl">
+        <div className="flex flex-col text-lg md:text-xl lg:text-2xl zoom-out">
           <p>Language</p>
           <p className="font-semibold">Bahasa and English</p>
         </div>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { HTMLAttributes, useEffect, useState } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { FaReact, FaPhp } from 'react-icons/fa';
@@ -8,7 +8,7 @@ import 'highlight.js/styles/tomorrow-night-blue.css'
 
 const tabData = [
   {id: "ts", icon: <FaReact size={18} />, filename: "index.tsx",
-    content: ['function Name(nama:string):string {', '  const greetings = `Halo ${nama}`;', '  return greetings;','}'], lang: 'typescript'
+    content: ['import { HTMLAttributes, useEffect, useState } from "react";', '', 'interface HiremeType extends HTMLAttributes<HTMLButtonElement> {', '  action: boolean', '}', '', 'export default function HireMeButton({action, ...rest}:HiremeType):JSX.Element {', '  const [showButton, setShowButton] = useState<boolean>(false)', '', '  useEffect(() => {', '    setShowButton(action)', '  }, [action])', '', '  if(showButton) return <button {...rest}>Hire Me</button>', '  else return <></>', '', '}'], lang: 'typescript'
   },
   // {id: "php", icon: <FaPhp size={18} />, filename: "index.php",
   // content: ['<?php','  function Test(halo) {', '    var greetings = halo + "nama";', '    return greetings;','  }', '?>'], lang: 'php'
@@ -47,6 +47,10 @@ interface tabDataType {
   lang: string
 }
 
+// interface HiremeType extends HTMLAttributes<HTMLButtonElement> {
+//   action: boolean
+// }
+
 export default function Skills() {
   const [tabActive, setTabActive] = useState<tabDataType | undefined>(undefined)
   const [tabLoading, setTabLoading] = useState<boolean>(true)
@@ -79,9 +83,10 @@ export default function Skills() {
       codeTl.fromTo(el,
       {text: ""},
       { text: el.innerHTML, delay: 0.5,
-        stagger: el.innerText.length,
+        stagger: el.innerText.length * 0.5,
       })
     })
+    codeTl.fromTo("#hireme", {autoAlpha: 0, yPercent: -100}, {autoAlpha: 1, yPercent: 0})
     ScrollTrigger.create({
       trigger: '#skill-section',
       start: 'top top',
@@ -123,6 +128,9 @@ export default function Skills() {
               ))}
             </div>
           </div>
+        </div>
+        <div className="flex flex-row justify-center">
+          <button id="hireme" onClick={() => console.log('')} className="py-2 px-4 md:px-8 md:py-4 bg-primary text-secondary rounded-xl font-semibold shadow-xl transform hover:scale-[1.02]" > Hire Me</button>
         </div>
       </div>
     </section>
