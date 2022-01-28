@@ -1,4 +1,3 @@
-// import Image from "next/image";
 import { useEffect, useState } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
@@ -69,7 +68,6 @@ export default function Skills() {
 
   useEffect(() => {
     const els = document.querySelectorAll<HTMLElement>('.codeScript-writter')
-    console.log(els, tabLoading)
     if (!tabLoading && els.length > 0) typewritingCode(els)
   }, [tabActive])
 
@@ -78,7 +76,6 @@ export default function Skills() {
     // gsap.utils.toArray<HTMLElement>('.codeScript-writter')
     target
     .forEach(el => {
-      console.log(el.innerText.length, "--")
       codeTl.fromTo(el,
       {text: ""},
       { text: el.innerHTML, delay: 0.5,

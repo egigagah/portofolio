@@ -51,7 +51,7 @@ export default function Portofolio() {
         <div className="flex flex-row justify-center items-center px-8 md:px-16 lg:px-32 pb-[120px] md::pb-[230px]">
           <div className="w-full h-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-8">
             {portoData.map((item, idx) => (
-              <a key={idx} href={item.link} target={"_blank"} id={`porto-cards-${idx}`} className="porto-cards overflow-hidden w-full h-[12rem] lg:h-[13.5rem] xl:h-[15rem] relative bg-gray-200 rounded-xl shadow-lg">
+              <a key={idx} href={item.link} target={"_blank"} id={`porto-cards-${idx}`} className="porto-cards overflow-hidden w-full h-[12rem] lg:h-[13.5rem] xl:h-[15rem] relative bg-gray-200 rounded-xl shadow-lg flex flex-col justify-end">
                 <Image
                   src={item.src}
                   layout="fill"
@@ -61,8 +61,8 @@ export default function Portofolio() {
                 <div className="absolute top-10 left-0 bg-secondary p-2 drop-shadow-xl rounded-r-lg development-tag text-xs text-primary font-bold">
                   <p>{item.status}</p>
                 </div>
-                <div className="h-1/3 w-full bg-gray-100 bg-opacity-50 fixed bottom-0 left-0 rounded-b-xl flex flex-col justify-center px-4 text-black">
-                  <p className="font-semibold text-md">{item.name}</p>
+                <div className="h-1/3 z-[1] w-full bg-gray-100 bg-opacity-50 rounded-b-xl flex flex-col justify-center px-4 text-black">
+                  <h3 className="font-semibold text-md">{item.name}</h3>
                   <p className="text-sm">descripsi aplikasi</p>
                 </div>
               </a>
