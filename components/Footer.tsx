@@ -1,5 +1,5 @@
 import { AiFillInstagram } from 'react-icons/ai'
-import { IoLogoLinkedin, IoLogoFacebook, IoLogoTwitter } from 'react-icons/io5'
+import { IoLogoLinkedin, IoLogoTwitter, IoLogoGithub } from 'react-icons/io5'
 
 export const Footer = () => {
   return (
@@ -17,6 +17,13 @@ export const Footer = () => {
           </div>
           <div className="flex flex-1 flex-row justify-center items-center space-x-4">
             <a
+              href="https://github.com/egigagah"
+              target={'_blank'}
+              rel="noreferrer"
+            >
+              <IoLogoGithub className="h-[1.5rem] w-[1.5rem]" />
+            </a>
+            <a
               href="https://www.linkedin.com/in/egi-gagah-brilliant-b0b940132"
               target={'_blank'}
               rel="noreferrer"
@@ -29,13 +36,6 @@ export const Footer = () => {
               rel="noreferrer"
             >
               <AiFillInstagram className="h-[1.5rem] w-[1.5rem]" />
-            </a>
-            <a
-              href="https://www.facebook.com/Peegigagah"
-              target={'_blank'}
-              rel="noreferrer"
-            >
-              <IoLogoFacebook className="h-[1.5rem] w-[1.5rem]" />
             </a>
             <a
               href="https://twitter.com/egigagah"

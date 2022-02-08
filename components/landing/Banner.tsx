@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import gsap from "gsap";
 import TextPlugin from "gsap/dist/TextPlugin";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
+// import LogoSvg from "../svg/Logo";
 
 export default function Banner() {
   const yearsExp = new Date().getFullYear() - 2017
@@ -22,6 +23,7 @@ export default function Banner() {
       const tlWelcome = gsap.timeline()
       
       tlWelcome.add('onload')
+      .to('#logo', {position: 'absolute', top: 50, left: 50, zIndex: 9999}, 'onload')
       .to(
         '#divider-svg-banner',
         // {height: '270vh'},
@@ -114,6 +116,7 @@ export default function Banner() {
         <button id="reachme" onClick={() => console.log('')} className="py-2 px-4 md:px-8 md:py-4 bg-primary text-secondary rounded-xl font-semibold shadow-xl transform hover:scale-[1.02]" > Reach Me</button>
       </div> */}
       <DividerSvg id='banner' height="h-[270vh]" />
+      {/* <LogoSvg id="logo" className="w-[10rem] h-[10rem]" /> */}
     </section>
   )
 }

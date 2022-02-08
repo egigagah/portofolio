@@ -1,4 +1,5 @@
 import 'tailwindcss/tailwind.css'
+// import 'devices-medias-component/dist/cjs/index.css'
 import type { AppProps } from 'next/app'
 import { useEffect } from 'react';
 
