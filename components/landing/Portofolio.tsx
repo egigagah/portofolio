@@ -12,12 +12,12 @@ import Jaksehat from "@/public/images/jaksehat.png";
 export default function Portofolio() {
   
   const portoData = [
-    {name: "Jakevo Remake", link: "https://jakevo-ui-dev.vercel.app/home/", status: "development", src: JakevoUi },
-    {name: "Jakevo", link: "https://jakevo.jakarta.go.id/", status: "on air", src: Jakevo},
-    {name: "Pelayanan", link: "https://pelayanan.jakarta.go.id/", status: "on air", src: Pelayanan},
-    {name: "Screening Plasma Konvalesen", link: "https://plasmakonvalesen.jakarta.go.id/", status: "on air", src: Plasma},
-    {name: "Jaksehat", link: "https://jaksehat.jakarta.go.id/", status: "development", src: Jaksehat},
-    {name: "Pelaporan Covid19", link: "https://pelaporan-covid19.jakarta.go.id/", status: "on air", src: Pelaporan},
+    {name: "Jakevo Remake", link: "https://jakevo-ui-dev.vercel.app/home/", status: "development", desc: "Web Application for Goverment of Jakarta", env: ["ReactJS", "Redux", "React Query"], src: JakevoUi },
+    {name: "Jakevo", link: "https://jakevo.jakarta.go.id/", status: "on air", desc: "Web Application for Goverment of Jakarta", env: ["AngularJS", "JQuery"], src: Jakevo},
+    {name: "Pelayanan", link: "https://pelayanan.jakarta.go.id/", status: "on air", desc: "Web Application for Goverment of Jakarta", env: ["JQuery"], src: Pelayanan},
+    {name: "Screening Plasma Konvalesen", link: "https://plasmakonvalesen.jakarta.go.id/", status: "on air", desc: "Web Application for Goverment of Jakarta", env: ["Next.js", "ReactJS"], src: Plasma},
+    {name: "Jaksehat", link: "https://jaksehat.jakarta.go.id/", status: "development", desc: "Mobile Application for Goverment of Jakarta", env: ["React Native", "Redux", "React Query", "Expo", "SQLite"], src: Jaksehat},
+    {name: "Pelaporan Covid19", link: "https://pelaporan-covid19.jakarta.go.id/", status: "on air", desc: "Web Application for Goverment of Jakarta", env: ["VueJS", "Vuex"], src: Pelaporan},
   ]
 
   useEffect(() => {
@@ -63,7 +63,14 @@ export default function Portofolio() {
                 </div>
                 <div className="h-1/3 z-[1] w-full bg-gray-100 bg-opacity-50 rounded-b-xl flex flex-col justify-center px-4 text-black">
                   <h3 className="font-semibold text-md">{item.name}</h3>
-                  <p className="text-sm">descripsi aplikasi</p>
+                  <p className="text-sm">{item.desc}</p>
+                  <div className="flex-1 flex-row text-[0.75rem] py-2">
+                    {
+                      item.env.map((env, idx) => (
+                        <span key={idx} className="mx-1 text-primary font-medium">{env}</span>
+                      ))
+                    }
+                  </div>
                 </div>
               </a>
             ))}
