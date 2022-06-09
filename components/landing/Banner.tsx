@@ -2,9 +2,7 @@ import Image from "next/image";
 import ProfilePict from "@/public/images/egi.jpg";
 import DividerSvg from "../svg/Divider";
 import { useEffect } from "react";
-import gsap from "gsap";
-import TextPlugin from "gsap/dist/TextPlugin";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import { gsap, TextPlugin, ScrollTrigger } from "@/utils/gsap";
 // import LogoSvg from "../svg/Logo";
 
 export default function Banner() {

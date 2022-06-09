@@ -1,7 +1,5 @@
 import { HTMLAttributes, useEffect, useRef, useState } from "react";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
-import TextPlugin from "gsap/dist/TextPlugin";
+import { gsap, ScrollTrigger } from "@/utils/gsap";
 import { FaReact, FaPhp } from 'react-icons/fa';
 import parse from 'html-react-parser';
 import hljs from "highlight.js";

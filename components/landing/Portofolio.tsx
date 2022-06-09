@@ -1,8 +1,7 @@
 import Image from "next/image";
 import { useEffect } from "react";
-import gsap from "gsap";
+import { gsap, ScrollTrigger } from "@/utils/gsap";
 import DividerSvg from "../svg/Divider";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import Jakevo from "@/public/images/jakevo.png";
 import JakevoUi from "@/public/images/jakevo-ui.png";
 import Plasma from "@/public/images/plasma.png";
